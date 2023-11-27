@@ -7,6 +7,7 @@
 
 import React, {useEffect} from 'react';
 import type {PropsWithChildren} from 'react';
+import * as eva from '@eva-design/eva';
 import {
   SafeAreaView,
   ScrollView,
@@ -36,6 +37,10 @@ import ScreamBattlePage from './ScreamBattlePage';
 import WinnerPage from './WinnerPage';
 import MVPSVPPage from './MVPSVPPage';
 import {NativeBaseProvider} from 'native-base';
+import TeamPickPage from './TeamPickPage';
+import {ApplicationProvider} from '@ui-kitten/components';
+import LaunchPage1 from './LaunchPage1';
+import TeamSelectPage1 from './TeamSelectPage1';
 
 const Stack = createStackNavigator();
 
@@ -87,41 +92,58 @@ function App(): JSX.Element {
 
   return (
     <NativeBaseProvider>
-      <NavigationContainer>
-        <StatusBar hidden={true} />
-        <Stack.Navigator initialRouteName="LaunchPage">
-          <Stack.Screen
-            name="LaunchPage"
-            component={LaunchPage}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="TeamSelect"
-            component={TeamSelectPage}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="GameLoading"
-            component={GameLoadingPage}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="ScreamBattle"
-            component={ScreamBattlePage}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="Winner"
-            component={WinnerPage}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="MVPSVP"
-            component={MVPSVPPage}
-            options={{headerShown: false}}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
+      <ApplicationProvider {...eva} theme={eva.light}>
+        <NavigationContainer>
+          <StatusBar hidden={true} />
+          <Stack.Navigator initialRouteName="LaunchPage1">
+            <Stack.Screen
+              name="LaunchPage"
+              component={LaunchPage}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="LaunchPage1"
+              component={LaunchPage1}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="TeamPick"
+              component={TeamPickPage}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="TeamSelect"
+              component={TeamSelectPage}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="TeamSelect1"
+              component={TeamSelectPage1}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="GameLoading"
+              component={GameLoadingPage}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="ScreamBattle"
+              component={ScreamBattlePage}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="Winner"
+              component={WinnerPage}
+              options={{headerShown: false}}
+            />
+            <Stack.Screen
+              name="MVPSVP"
+              component={MVPSVPPage}
+              options={{headerShown: false}}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </ApplicationProvider>
     </NativeBaseProvider>
   );
 }

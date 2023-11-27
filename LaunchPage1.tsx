@@ -9,22 +9,22 @@ import {
   Pressable,
 } from 'react-native';
 
-const LaunchPage = ({navigation}) => {
+const LaunchPage1 = ({navigation}) => {
   return (
     <ImageBackground
-      source={require('./assets/launch-bg.png')}
+      source={require('./assets/background2.png')}
       style={styles.background}>
       <View style={styles.container}>
         <Pressable
-          style={styles.absolute}
+          style={styles.button}
           onPress={() => navigation.navigate('TeamPick')}>
           <Text
             style={[
               {
-                fontFamily: 'BebasNeue-Regular',
-                textTransform: 'uppercase',
+                fontFamily: 'OpenSans-Regular',
                 color: 'white',
-                fontSize: 12,
+                fontSize: 10,
+                textTransform: 'uppercase',
               },
             ]}>
             Start
@@ -43,23 +43,18 @@ const styles = StyleSheet.create({
     position: 'relative',
     // backgroundColor: '#fff', // Set your background color
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
   background: {
     flex: 1,
     resizeMode: 'cover',
   },
-  absolute: {
+  button: {
     position: 'absolute',
     bottom: '10%',
-    backgroundColor: '#5E40B7',
+    backgroundColor: '#E41F1F',
     paddingVertical: 4,
     paddingHorizontal: 23,
     borderRadius: 2,
   },
 });
 
-export default LaunchPage;
+export default LaunchPage1;

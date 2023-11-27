@@ -40,30 +40,6 @@ const ScreamBattlePage = ({navigation, route}) => {
     return team1Score > team2Score ? team1Scores : team2Scores;
   };
 
-  // console.log(soundLevel);
-
-  // console.log(decibels);
-
-  // useEffect(() => {
-  //   if (currentMember && isRecording) {
-  //     // Start recording sound level
-  //     SoundLevel.start();
-  //     SoundLevel.onNewFrame = data => {
-  //       // Update sound level
-  //       console.log(data.value);
-  //       setSoundLevel(data.value);
-  //     };
-  //   } else {
-  //     // Stop recording sound level
-  //     SoundLevel.stop();
-  //   }
-
-  //   return () => {
-  //     // Cleanup on component unmount
-  //     SoundLevel.stop();
-  //   };
-  // }, [currentMember, isRecording]);
-
   const requestAudioPermission = async () => {
     try {
       const granted = await PermissionsAndroid.request(

@@ -177,7 +177,7 @@ import {
 
 // export default TeamSelectPage;
 
-const TeamSelectPage = ({navigation}) => {
+const TeamSelectPage = ({navigation, route}) => {
   const allMembers = ['Arun', 'Ramesh', 'Sanish', 'Abish', 'Sujan', 'Parbati'];
   const [selectedTeamMembers1, setSelectedTeamMembers1] = useState(
     Array(3).fill(null),
@@ -186,7 +186,11 @@ const TeamSelectPage = ({navigation}) => {
     Array(3).fill(null),
   );
 
-  console.log(selectedTeamMembers1, selectedTeamMembers2);
+  const {team1, team2, numOfTeams} = route.params;
+
+  console.log(team1, team2, numOfTeams);
+
+  // console.log(selectedTeamMembers1, selectedTeamMembers2);
 
   const handleSelectTeam1Member = (member, index) => {
     const updatedMembers = [...selectedTeamMembers1];
